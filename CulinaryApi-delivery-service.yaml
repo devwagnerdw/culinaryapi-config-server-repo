@@ -1,13 +1,13 @@
 server:
-  port: 8081
+  port: 8085
   servlet:
-    context-path: '/culinary-user-service/'
+    context-path: '/culinary-delivery-service/'
 
 spring:
   application:
-    name: CulinaryApi-User-Service
+    name: CulinaryApi-delivery-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/Culinaryapi-UserService
+    url:  jdbc:postgresql://localhost:5432/Culinary-delivery
     username: postgres
     password: 123
   jpa:
@@ -15,25 +15,31 @@ spring:
       ddl-auto: update
       dialect: org.hibernate.dialect.PostgreSQLDialect
       jdbc:
-        lob:
-          non-contextual-creation: true
+        lob.non-contextual-creation: true
     properties:
       hibernate:
         show_sql: true
+  output:
+    ansi:
+      enabled: Always
   rabbitmq:
     addresses: amqps://gxfhiqck:3sivG1zlLvv3W7SWQcK14y010juFScxm@leopard.lmq.cloudamqp.com/gxfhiqck
+
 
 Culinary:
   broker:
     exchange:
-      userEventExchange: Culinary.userEvent
-      userServiceEventExchange: Culinary.userServiceEvent
+      deliverymanEventExchange: Culinary.deliverymanEvent
+      deliveryEventExchange: Culinary.deliveryEvent
+      orderServiceEventExchange: Culinary.OrderService
     queue:
-      userEventQueue:
-        name: Culinary.userEvent.userService
+      deliverymanEventQueue:
+        name: Culinary.deliverymanEvent.Deliveryman
+      deliveryEventQueue:
+        name: culinary.deliveryEvent.delivery
+
   auth:
     jwt-secret: ZHsOVU5Y6gGU3/S9WZfY5W/Ni6ZixK0I9rZ44MudSRuNYvib+ZoeP/YQNfEvXlDhEgV60Ma8csbcv6ALfOjdyMg==
-
 
 eureka:
   client:
