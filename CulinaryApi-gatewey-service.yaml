@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: culinaryApi-api-gateway
+    name: CulinaryApi-gatewey-service
   cloud:
     gateway:
       routes:
