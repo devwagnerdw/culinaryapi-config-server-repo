@@ -1,7 +1,4 @@
 culinary:
-  configServer:
-    username: configserver
-    password: 'culinary123'
   serviceRegistry:
     username: serviceregistry
     password: 'culinary123sr'
