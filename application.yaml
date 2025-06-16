@@ -1,7 +1,10 @@
 culinary:
+  configServer:
+    username: configserver
+    password: 'culinary123'
   serviceRegistry:
     username: serviceregistry
-    password: 'ead123sr'
+    password: 'culinary123sr'
 
 eureka:
   client:
